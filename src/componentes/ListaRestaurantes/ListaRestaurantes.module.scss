@@ -2,3 +2,20 @@
   margin-top: 1.5rem;
   padding: 2rem;
 }
+
+.wrapper__lista {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search__lista {
+  position: relative;
+  svg{
+    cursor: pointer;
+    position: absolute;
+    top: 20%;
+    right: 10px;
+    background-color: white;
+    z-index: 1;
+  }
+}
