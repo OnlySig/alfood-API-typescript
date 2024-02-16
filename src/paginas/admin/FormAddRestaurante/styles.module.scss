@@ -1,0 +1,30 @@
+.containerCard {
+    position: relative;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: #dddde0;
+    margin: 4vw 20vw;
+    border-radius: 1rem;
+    box-shadow: 10px 10px 5px -2px rgba(0,0,0,0.3);
+    @media screen and (max-width: 500px) {
+        margin: 5vw 2vw;
+        padding: 0 20px;
+    }
+    .voltar {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    h1 {
+        font-size: 1.33rem;
+    }
+    form {
+        button {
+            margin-top: 8px;
+        }
+    }
+}
+

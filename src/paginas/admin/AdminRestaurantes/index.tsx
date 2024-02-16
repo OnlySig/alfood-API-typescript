@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react"
 import IRestaurante from "../../../interfaces/IRestaurante"
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material"
-import axios from "axios"
 import { Link } from "react-router-dom"
+import { httpV2 } from "../../../http"
 const AdminRestaurantes = () => {
     const [restaurantes, setRestaurantes] = useState<IRestaurante[]>([])
     useEffect(()=> {
-        axios.get<IRestaurante[]>('http://localhost:8000/api/v2/restaurantes/')
+        httpV2.get<IRestaurante[]>('restaurantes/')
+        //captura tudos os restaurantes
             .then(resp => setRestaurantes(resp.data))
-    }, [])
+    }, [setRestaurantes])
     const deletaRestaurante = (id: number) => {
-        axios.delete<IRestaurante>(`http://localhost:8000/api/v2/restaurantes/${id}/`)
-            .then(() => {
-                setRestaurantes(restaurantes.filter(item => item.id !== id))
-            })
+        httpV2.delete<IRestaurante>(`restaurantes/${id}/`)
+        //deleta um elemento tanto na api quanto no site com o filter
+            .then(() => setRestaurantes(restaurantes.filter(item => item.id !== id)))
     }
     return(
         <TableContainer component={Paper}>
