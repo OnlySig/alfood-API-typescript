@@ -50,12 +50,12 @@ const ListaRestaurantes = () => {
     }
     if(searchRestaurante){
       setRestaurantes(restaurantes.filter(item => pesquisar(item.nome)))
-    } else if(restaurantes.length <= 0) {
+    }
+    if(searchRestaurante.length <= 0) {
       carregarDados('http://localhost:8000/api/v1/restaurantes/')
     }
 
   },[searchRestaurante, ordenador])
-
   return (
     <section className={style.ListaRestaurantes}>
       <div className={style.wrapper__lista}>

@@ -21,8 +21,7 @@ const FormAddRestaurante = () => {
                         nav(-1)
                     }
                 })
-
-        }
+            }
     },[id, nav])
     const voltar = () => {
         nav(-1)
@@ -44,14 +43,16 @@ const FormAddRestaurante = () => {
         voltar()
     }
     return(
-        <Box className={styles.containerCard}>
-            <Button variant="outlined" className={styles.voltar} color="secondary" onClick={voltar}>{'< voltar'}</Button>
-            <Typography component="h1" variant="h6">Formulário de Restaurantes</Typography>
-            <Box component='form' onSubmit={aoSubmitar} className="">
-                <TextField id="standard-basic" label="Nome do Restaurante" variant="standard" value={nomeRestaurante} onChange={e => setNomeRestaurante(e.target.value)} fullWidth required/>
-                <Button type="submit" variant="outlined" fullWidth>Salvar</Button>
+        <>
+            <Box className={styles.containerCard}>
+                <Button variant="outlined" className={styles.voltar} color="secondary" onClick={voltar}>{'< voltar'}</Button>
+                <Typography component="h1" variant="h6">Formulário de Restaurantes</Typography>
+                <Box component='form' onSubmit={aoSubmitar}>
+                    <TextField id="standard-basic" label="Nome do Restaurante" variant="standard" value={nomeRestaurante} onChange={e => setNomeRestaurante(e.target.value)} fullWidth required/>
+                    <Button type="submit" variant="outlined" fullWidth>Salvar</Button>
+                </Box>
             </Box>
-        </Box>
+        </>
     )
 }
 

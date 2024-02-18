@@ -16,43 +16,42 @@ const AdminRestaurantes = () => {
             .then(() => setRestaurantes(restaurantes.filter(item => item.id !== id)))
     }
     return(
-        <TableContainer component={Paper}>
-            <Table>
-                <TableHead>
-                    <TableRow>
-                        <TableCell>
-                            Nome
-                        </TableCell>
-                        <TableCell>
-                            Editar
-                        </TableCell>
-                        <TableCell>
-                            Deletar
-                        </TableCell>
-                        <TableCell>
-                            <Link to={'/admin/restaurantes/novo'}><Button variant="contained" color='success'>Novo</Button></Link>
-                        </TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {restaurantes.map(restaurante => 
-                        <TableRow key={restaurante.id}>
+        <>
+            <TableContainer component={Paper}>
+                <Table>
+                    <TableHead>
+                        <TableRow>
                             <TableCell>
-                                {restaurante.nome}
+                                Nome
                             </TableCell>
                             <TableCell>
-                                [<Link to={`/admin/restaurantes/${restaurante.id}`}>editar</Link>]
+                                Editar
                             </TableCell>
                             <TableCell>
-                                <Button variant="outlined" color="error" onClick={() => deletaRestaurante(restaurante.id)}>
-                                    Deletar
-                                </Button>
+                                Deletar
                             </TableCell>
                         </TableRow>
-                    )}    
-                </TableBody>
-            </Table>
-        </TableContainer>
+                    </TableHead>
+                    <TableBody>
+                        {restaurantes.map(restaurante => 
+                            <TableRow key={restaurante.id}>
+                                <TableCell>
+                                    {restaurante.nome}
+                                </TableCell>
+                                <TableCell>
+                                    [<Link to={`/admin/restaurantes/${restaurante.id}`}>editar</Link>]
+                                </TableCell>
+                                <TableCell>
+                                    <Button variant="outlined" color="error" onClick={() => deletaRestaurante(restaurante.id)}>
+                                        Deletar
+                                    </Button>
+                                </TableCell>
+                            </TableRow>
+                        )}    
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </>
     )
 }
 
